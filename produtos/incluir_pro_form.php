@@ -1,9 +1,9 @@
 <?php
-// include_once "../funcoes.php";
-// $sql = "SELECT * FROM `categorias`";
-// $retorno = fazConsultaSegura($sql);
-// $categoria = $_REQUEST['$categoria'];
-// geraSelect($retorno[0]['catdescr'], "categoria",$categoria);
+include_once "../funcoes.php";
+$sql = "SELECT * FROM `categorias`";
+$retorno = fazConsultaSegura($sql);
+print_r($retorno);
+$categoria = $_REQUEST['$categoria'];
 ?>
 
 
@@ -11,7 +11,7 @@
     <form action="incluir_pro.php" method="POST" enctype="multipart/form-data">
     *Nome: <input type="text" name="nome" value="<?=@$nome?>"><br>
     *Marca: <input type="text" name="marca" value="<?=@$marca?>"><br>
-    *Categoria: <input type="text" name="categoria" value="<?=@$categoria?>"><br>
+    *Categoria: <?=geraSelect($retorno,'categoria')?><br>
     *Preço: <input type="text" name="preco" value="<?=@$preco?>"><br>
     Enviar Imagem: <input type="file" name="upload"><br>
     <button type="submit" name="salvar" value="salvar">Salvar</button>

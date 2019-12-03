@@ -7,6 +7,12 @@
     <a href="">Home</a>
     
     <?php
+    if ($_SESSION['admemail'])
+    {
+    ?> 
+        <a href="mostra_adm.php">Administração</a>
+    <?php   
+    }
         if (@$_SESSION) {
     ?>
         <a href="carrinho.php">Carrinho</a>

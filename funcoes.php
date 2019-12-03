@@ -44,14 +44,14 @@ function fazConsultaSegura($sql,$parametros=array(),&$id=-1){
 }
 
 
-function geraSelect($array,$nome){
+function geraSelect($array,$nome,$valor=array()){
     echo("<select name=\"$nome\">");
     for($i=0; $i<count($array); $i++){
-        if ($valor == $array[$i]){
-            echo("<option selected>" . $array[$i] . "</option>");
+        if ($valor == $array[$i]['catcodig']){
+            echo("<option value='" .$array[$i]['catcodig'] . "' selected>" . $array[$i]['catdescr'] . "</option>");
         }
         else {
-            echo("<option>" . $array[$i] . "</option>");
+            echo("<option value='" .$array[$i]['catcodig'] . "'>" . $array[$i]['catdescr'] . "</option>");
         }
         
     }
