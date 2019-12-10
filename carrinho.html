@@ -29,7 +29,6 @@
                 const destino = 'carrinho';
                 const origem = 'lista';
                 const saida  = document.getElementById('saida');
-                const ul = document.getElementById(origem);
                 const ulDest = document.getElementById(destino);
                 //carrega a lista de produtos quando a página estiver pronta
                 
@@ -64,11 +63,13 @@
               
 
         ///funcao para carregar lista de produtos
-        function carregaLista(origem,destino){
+        function carregaLista(){
+            var ul = document.getElementById(origem);
+
             //remove todo conteúdo da lista
             ul.innerHTML = '';
             //carrega dados dos produtos em JSON
-            $.get( "crud/consulta.php", function( dados ) {
+            $.get( "carrinho/consulta.php", function( dados ) {
                 var objJSON = JSON.parse(dados);
                 //pega cada um dos itens do JSON 
                 for (var i in objJSON){

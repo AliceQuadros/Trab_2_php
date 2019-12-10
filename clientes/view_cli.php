@@ -16,16 +16,11 @@ foreach ($retorno as $item)
     
     <?=$item['clinome'];?>
     <?=$item['cliemail'];?>
-    <?=$item['clisenha'];?>
-    <img src="../upload/<?= $item['climagem']; ?>" alt="imagem do post">
-<!-- tirar daqui -->
-<!-- arrumar: usuario so pode excluir e alterar o seu proprio cadastro -->
-      
-    <form action="clientes/alterar_cli_form.php"  method="POST">
+    <img src="../upload/<?= $item['climagem']; ?>" alt="imagem do post">      
+    <form action="alterar_cli_form.php"  method="POST">
         <button type="submit" name="alterar" value="<?= $item['clicodig']; ?>">Alterar</button>
     </form>
- <!--  -->
-        <form action="clientes/excluir_cli_teste.php"  method="POST">
+        <form action="excluir_cli_teste.php"  method="POST">
             <button type="submit" name="excluir" value="<?= $item['clicodig']; ?>">Excluir</button>
         </form>
         
