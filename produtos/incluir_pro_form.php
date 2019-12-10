@@ -15,7 +15,7 @@ $categoria = $_REQUEST['$categoria'];
     *Preço: <input type="text" name="preco" value="<?=@$preco?>"><br>
     Enviar Imagem: <input type="file" name="upload"><br>
     <button type="submit" name="salvar" value="salvar">Salvar</button>
-    <button href="mostra_cat.php">Voltar</button>
+    <button name="voltar">Voltar</button>
     <br>
     *Campos obrigatórios.<br>
     **Caso não enviar nenhuma imagem, irá imagem padrão.<br>

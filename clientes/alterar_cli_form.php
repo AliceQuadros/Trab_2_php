@@ -18,7 +18,7 @@ $senhaDescriptografada = base64_decode($senha);
     **Enviar Imagem:<input type="file" name="upload"><br>
     Imagem Antiga:<br> <img src="../upload/<?=$retorno[0]['climagem']?>"><br>
     <button name="salvar" value="salvar">Salvar</button>
-    <button href="mostra_cat.php">Voltar</button>
+    <button name="voltar">Voltar</button>
     <br>
     *Campos obrigatórios.<br>
     **Caso não enviar nenhuma imagem, irá imagem padrão.<br>

@@ -16,6 +16,6 @@ $senhaDescriptografada = base64_decode($senha);
     *Senha: <input type="text" name="senha" value="<?=@$senhaDescriptografada?>"><br>
     <!-- *Confirmar senha: <input type="text" name="descricao" value=""><br> -->
     <button name="salvar" value="salvar">Salvar</button>
-    <button href="mostra_cat.php">Voltar</button>
+    <button name="voltar">Voltar</button>
     </form>
 </div>

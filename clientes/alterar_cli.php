@@ -8,6 +8,10 @@ $nome = $_POST['nome'];
 $email = $_POST['email'];
 $senha = $_POST['senha'];
 $criptografada = base64_encode($senha);
+if (isset($_POST['voltar']))
+{
+    header('Location: ../home.php');
+}
 
 $sql = "SELECT `climagem` FROM clientes WHERE `clicodig` = ?";
 $retorno = fazConsultaSegura($sql, array($codigo));

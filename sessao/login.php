@@ -5,6 +5,10 @@ include_once "../funcoes.php";
 @$email = $_POST['email'];
 @$senha = $_POST['senha'];
 @$criptografada = base64_encode($senha);
+if (isset($_POST['voltar']))
+{
+    header('Location: ../home.php');
+}
 ///////////////////////////////////////////////////////////////// CLIENTES /////////////////////////////////////////////////////////////////
 $sql = "SELECT * FROM `clientes`";
 $retornocli = fazConsultaSegura($sql);

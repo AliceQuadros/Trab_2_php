@@ -132,3 +132,7 @@ foreach ($retorno3 as $item)
     <?php
     
 }
+?>
+<form action="carrinho.php"  method="POST">
+    <button type="submit" name="excluir">go</button>
+</form>

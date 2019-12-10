@@ -21,17 +21,24 @@ foreach ($retorno as $item)
 <!-- tirar daqui -->
 <!-- arrumar: usuario so pode excluir e alterar o seu proprio cadastro -->
       
-<form action="clientes/alterar_cli_form.php"  method="POST">
-    <button type="submit" name="alterar" value="<?= $item['clicodig']; ?>">Alterar</button>
-</form>
+    <form action="clientes/alterar_cli_form.php"  method="POST">
+        <button type="submit" name="alterar" value="<?= $item['clicodig']; ?>">Alterar</button>
+    </form>
  <!--  -->
         <form action="clientes/excluir_cli_teste.php"  method="POST">
             <button type="submit" name="excluir" value="<?= $item['clicodig']; ?>">Excluir</button>
         </form>
         
     <?php
-    die();
+
     }
     
 
+}
+?>
+<button type="submit" name="voltar">Voltar</button>
+<?php
+if (isset($_POST['voltar']))
+{
+    header('Location: ../home.php');
 }

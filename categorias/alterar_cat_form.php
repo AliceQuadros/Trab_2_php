@@ -9,6 +9,6 @@ $descricaoantiga = $_POST['descricao_antiga']
     *Descrição: <input type="text" name="descricao">
     <input hidden name="descricao_antiga" value="<?=$descricaoantiga;?>">
     <button name="salvar" value="salvar">Salvar</button>
-    <button href="mostra_cat.php">Voltar</button>
+    <button name="voltar">Voltar</button>
     </form>
 </div>

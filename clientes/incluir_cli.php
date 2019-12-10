@@ -6,6 +6,10 @@ $nome = $_POST['nome'];
 $email = $_POST['email'];
 $senha = $_POST['senha'];
 $criptografada = base64_encode($senha);
+if (isset($_POST['voltar']))
+{
+ header('Location: ../home.php');
+}
 if ($imagem == NULL)
 {
     $imagem = "0.png";

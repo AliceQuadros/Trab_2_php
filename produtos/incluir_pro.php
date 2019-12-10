@@ -1,23 +1,42 @@
 <?php
 include_once "../funcoes.php";
+$uploadOk == 1;
 $id = 0;
 $imagem = $_FILES['upload']['name'];
 $nome = $_POST['nome'];
 $marca = $_POST['marca'];
 $preco = $_POST['preco'];
 $categoria = $_POST['categoria'];
-if ($imagem == NULL)
+if (isset($_POST['voltar']))
 {
-    $imagem = "0.png";
+    header('Location: ../mostra_adm.php');
 }
-$sql = "INSERT INTO `produtos` (pronome,promarca,procateg,propreco,proimagem) VALUES (?,?,?,?,?);";
-$retorno1 = fazConsultaSegura($sql, array($nome,$marca,$categoria,$preco,$imagem), $id);
-if ($imagem != "0.png")
+
+$check = getimagesize($_FILES["upload"]["tmp_name"]);
+if($check !== false) {
+    echo "Arquivo é uma imagem válida - " . $check["mime"] . ".<br>";
+    $uploadOk = 1;
+} else {
+    echo "Arquivo não é uma imagem.<br>";
+    $uploadOk = 0;
+}
+
+if($uploadOk == 1)
 {
+    $sql = "INSERT INTO `produtos` (pronome,promarca,procateg,propreco,proimagem) VALUES (?,?,?,?,?);";
+    $retorno1 = fazConsultaSegura($sql, array($nome,$marca,$categoria,$preco,$imagem), $id);    
     include_once "../upload_pro.php";
     $sql = "UPDATE `produtos` SET `proimagem` = ?  WHERE `procodig` = ?";
     $retorno2 = fazConsultaSegura($sql, array($arquivo, $id));
 }
+if($uploadOk == 0)
+{
+    echo("Ocorreu um erro enviando seu arquivo");
+}
+
+
+
+
 
 
 
