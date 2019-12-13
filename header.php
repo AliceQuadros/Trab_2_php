@@ -19,14 +19,17 @@
         <a href="carrinho.php">Carrinho</a>
         <a href="clientes/view_cli.php">Perfil</a>
         <a href="sessao/logout.php">Logout</a>
+        
     <?php
         }else if (@$_SESSION == false){
     ?>
     <a href="sessao/login_form.php">Entrar</a>
+    <a href="clientes/incluir_cli_form.php">Criar Conta</a>
+
 
     <?php
     }
+        include_once "pesquisa/pesquisa_form.php";
     ?>
-
 
 </header>

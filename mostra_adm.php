@@ -1,14 +1,20 @@
 <?php
 session_start(); 
-
 include_once "funcoes.php";
 include_once "header.php";
-var_dump($_SESSION);
-
+?>
+<!-- <head>
+    <link rel="stylesheet" href="padroes/normalize.css">
+    <link rel="stylesheet" href="padroes/reset.css">
+    <link rel="stylesheet" href="padroes/grid.css">
+    <link rel="stylesheet" href="css/style.css">
+</head> -->
+<?php
 //////////////////////////////////////////////////////////////////ADMIN/////////////////////////////////////////////////////////////////
 if (@$_SESSION['admemail'])
 {
     ?>
+    
     <h2>Administradores</h2>
     <form action="adm/incluir_adm_form.php"  method="POST">
     <button type="submit" name="incluir">Novo administrador</button><br>
@@ -19,9 +25,8 @@ if (@$_SESSION['admemail'])
     foreach ($retorno1 as $item) 
     {
         ?>
-        <?=$item['admnome'];?>
-        <?=$item['admemail'];?>
-        <?=$item['admsenha'];?>
+        <?=$item['admnome'];?><br>
+        <?=$item['admemail'];?><br>
             <form action="adm/alterar_adm_form.php"  method="POST">
                 <button type="submit" name="alterar" value="<?= $item['admcodig']; ?>">Alterar</button>
             </form>
@@ -59,6 +64,39 @@ foreach ($retorno2 as $item)
     <?php
     
 }
+///////////////////////////////////////////////////////////////// PRODUTOS /////////////////////////////////////////////////////////////////
+$sql = "SELECT * FROM `produtos`";
+$retorno3 = fazConsultaSegura($sql);
+
+?>
+<hr>
+<h2>Produtos</h2>
+<form action="produtos/incluir_pro_form.php"  method="POST">
+<button type="submit" name="incluir">Novo Produto</button><br>
+</form>
+<?php
+foreach ($retorno3 as $item) 
+{
+    ?>
+    
+    <?=$item['pronome'];?><br>
+    <?=$item['promarca'];?><br>
+    <?=$item['propreco'];?><br>
+    <img src="upload_pro/<?= $item['proimagem']; ?>" alt="imagem do post">
+ 
+    
+<form action="produtos/alterar_pro_form.php"  method="POST">
+    <button type="submit" name="alterar" value="<?= $item['procodig']; ?>">Alterar</button>
+</form>
+        <form action="produtos/excluir_pro_teste.php"  method="POST">
+            <button type="submit" name="excluir" value="<?= $item['procodig']; ?>">Excluir</button>
+        </form>
+        
+    <?php
+    
+}
+
+
 ///////////////////////////////////////////////////////////////// CLIENTES /////////////////////////////////////////////////////////////////
 $sql = "SELECT * FROM `clientes`";
 $retorno3 = fazConsultaSegura($sql);
@@ -66,27 +104,17 @@ $retorno3 = fazConsultaSegura($sql);
 ?>
 <hr>
 <h2>Usuários</h2>
-<!-- tirar daqui -->
 <form action="clientes/incluir_cli_form.php"  method="POST">
 <button type="submit" name="incluir">Novo Usuário</button><br>
 </form>
-<!--  -->
 <?php
 foreach ($retorno3 as $item) 
 {
     ?>
     
-    <?=$item['clinome'];?>
-    <?=$item['cliemail'];?>
-    <?=$item['clisenha'];?>
+    <?=$item['clinome'];?><br>
+    <?=$item['cliemail'];?><br>
     <img src="upload/<?= $item['climagem']; ?>" alt="imagem do post">
-<!-- tirar daqui -->
-<!-- arrumar: usuario so pode excluir e alterar o seu proprio cadastro -->
-      
-<form action="clientes/alterar_cli_form.php"  method="POST">
-    <button type="submit" name="alterar" value="<?= $item['clicodig']; ?>">Alterar</button>
-</form>
- <!--  -->
         <form action="clientes/excluir_cli_teste.php"  method="POST">
             <button type="submit" name="excluir" value="<?= $item['clicodig']; ?>">Excluir</button>
         </form>
@@ -95,44 +123,3 @@ foreach ($retorno3 as $item)
 
 }
 
-///////////////////////////////////////////////////////////////// PRODUTOS /////////////////////////////////////////////////////////////////
-$sql = "SELECT * FROM `produtos`";
-$retorno3 = fazConsultaSegura($sql);
-
-?>
-<hr>
-<h2>Produtos</h2>
-<!-- tirar daqui -->
-<form action="produtos/incluir_pro_form.php"  method="POST">
-<button type="submit" name="incluir">Novo Produto</button><br>
-</form>
-<!--  -->
-<?php
-foreach ($retorno3 as $item) 
-{
-    ?>
-    
-    <?=$item['pronome'];?>
-    <?=$item['promarca'];?>
-    <?=$item['propreco'];?>
-    <img src="upload_pro/<?= $item['proimagem']; ?>" alt="imagem do post">
- 
-    
-<!-- tirar daqui -->
-<!-- arrumar: usuario so pode excluir e alterar o seu proprio cadastro -->
-
-<form action="produtos/alterar_pro_form.php"  method="POST">
-    <button type="submit" name="alterar" value="<?= $item['procodig']; ?>">Alterar</button>
-</form>
- <!--  -->
-        <form action="produtos/excluir_pro_teste.php"  method="POST">
-            <button type="submit" name="excluir" value="<?= $item['procodig']; ?>">Excluir</button>
-        </form>
-        
-    <?php
-    
-}
-?>
-<form action="carrinho.php"  method="POST">
-    <button type="submit" name="excluir">go</button>
-</form>

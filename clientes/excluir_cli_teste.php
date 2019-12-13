@@ -5,5 +5,5 @@ $codigo = $_POST['excluir'];
 <form  action='excluir_cli.php' method="post">
 	<input type="text" name="codigo" value="<?=$codigo?>" readonly><br>
     <button type="submit" name="sim" value="<?=$codigo?>">Sim</button>
-    <button type="submit" name="voltar" >Não</button> 
+    <button type="submit" name="nao" value="nao" >Não</button> 
 </form>

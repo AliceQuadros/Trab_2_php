@@ -19,8 +19,7 @@ foreach ($retornocli as $itemcli)
     {
         $_SESSION['cliemail'] = $email;
         $_SESSION['clicodig'] = $itemcli['clicodig'];
-        echo("logado com sucesso");
-        
+        header("location: ../home.php");
     }
    
 }
@@ -33,7 +32,9 @@ $sql = "SELECT * FROM `admin`";
             if (($email == $itemadm['admemail']) and ($criptografada == $itemadm['admsenha'])) 
             {
                 $_SESSION['admemail'] = $email;
-                echo("logado com sucesso");
+                $_SESSION['amdcodig'] = $itemadm['admcodig'];
+                header("location: ../mostra_adm.php");
+
                 
             }  
         }

@@ -1,5 +1,6 @@
 <?php
 include_once "../funcoes.php";
+session_start();
 $id = 0;
 $imagem = $_FILES['upload']['name'];
 $nome = $_POST['nome'];
@@ -26,5 +27,13 @@ if ($imagem != "0.png")
 $sql = "UPDATE `clientes` SET `climagem` = ?  WHERE `clicodig` = ?";
 $retorno2 = fazConsultaSegura($sql, array($arquivo, $id));
 }
+if (@$_SESSION['amdcodig'])
+{
+    header('Location: ../mostra_adm.php');
+
+}
+else
+header('Location: ../home.php');
+
 
 

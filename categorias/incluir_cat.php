@@ -7,3 +7,4 @@ if (isset($_POST['voltar']))
 $categoria = $_POST['descricao'];
 $sql = "INSERT INTO `categorias` (catdescr) VALUES (?);";
 $retorno = fazConsultaSegura($sql, array($categoria));
+header('Location: ../mostra_adm.php');

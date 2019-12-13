@@ -31,9 +31,9 @@ foreach ($retorno as $item)
 
 }
 ?>
-<button type="submit" name="voltar">Voltar</button>
+<a href="../home.php">Voltar</a>
 <?php
-if (isset($_POST['voltar']))
+if ($_POST['voltar'])
 {
     header('Location: ../home.php');
 }

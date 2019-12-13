@@ -12,4 +12,5 @@ if (isset($_POST['voltar']))
 $sql = "UPDATE `categorias` SET `catdescr` = ? WHERE `catcodig` = ?";
 $retorno = fazConsultaSegura($sql, array($descricao, $codigo));
 
-echo("alterado com sucesso de: " . $descricaoantiga . " para: " . $descricao  );
+header('Location: ../mostra_adm.php');
+

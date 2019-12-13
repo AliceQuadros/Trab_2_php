@@ -1,22 +1,20 @@
 <?php
+session_start();
 include_once "../funcoes.php";
 $codigo = $_POST['codigo']; 
 
-if($_SESSION['admemail'])
+if(@$_SESSION['admemail'])
 {
-    if (isset($_POST['voltar']))
+    if ($_POST['nao'])
     {
         header('Location: ../mostra_adm.php');
     }
 }
-else
+else if (@$_SESSION['cliemail'])
 {
-    if (isset($_POST['voltar']))
+    if ($_POST['sim'])
     {
-        header('Location: ../home.php');
-    }   
-}
-try
+        try
 {
     $sql = "delete from clientes where clicodig = ?";
     fazConsultaSegura($sql, array($codigo));
@@ -24,7 +22,17 @@ try
 catch ( thrown $error)
 {
         echo ($error);
+}   
+        
+    } 
+    else
+    {
+        echo'oi';
+        header('Location: ../home.php');   
+    }
 }
+
+
     
 
 

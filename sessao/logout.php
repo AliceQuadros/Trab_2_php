@@ -1,9 +1,6 @@
 <?php
 session_start(); 
-
-var_dump($_SESSION);
-
 $_SESSION = array();
+header("location: ../home.php");
 
 
-var_dump($_SESSION);

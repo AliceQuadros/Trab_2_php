@@ -14,7 +14,7 @@ $senhaDescriptografada = base64_decode($senha);
     <input name="codigo" hidden value="<?=$retorno[0]['clicodig']?>">
     *Nome: <input type="text" name="nome" value="<?=$retorno[0]['clinome']?>"><br>
     *E-mail: <input type="text" name="email" value="<?=$retorno[0]['cliemail']?>"><br>
-    *Senha: <input type="text" name="senha" value="<?=$senhaDescriptografada?>"><br>
+    *Senha: <input type="password" name="senha" value="<?=$senhaDescriptografada?>"><br>
     **Enviar Imagem:<input type="file" name="upload"><br>
     Imagem Antiga:<br> <img src="../upload/<?=$retorno[0]['climagem']?>"><br>
     <button name="salvar" value="salvar">Salvar</button>
