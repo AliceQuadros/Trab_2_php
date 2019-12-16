@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 10-Dez-2019 às 14:51
+-- Generation Time: 17-Dez-2019 às 00:25
 -- Versão do servidor: 10.1.38-MariaDB
 -- versão do PHP: 7.1.27
 
@@ -40,63 +40,9 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admnome`, `admemail`, `admsenha`, `admcodig`) VALUES
-('admilson', 'adminboladao@gmail.com', '578be958e9ee77dd5a13f02211555d87', 1),
 ('Babika top', 'Babi.gatinha.eu@gmail.com', '294f7e62379b11cc3d2402de26d2a3d7', 2),
-('al', 'al', 'YWw=', 3);
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `carrinhos`
---
-
-CREATE TABLE `carrinhos` (
-  `carprodu` int(11) NOT NULL,
-  `carquant` int(11) NOT NULL,
-  `cardata` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `carusuar` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `carrinhos`
---
-
-INSERT INTO `carrinhos` (`carprodu`, `carquant`, `cardata`, `carusuar`) VALUES
-(106, 5, '2019-12-03 12:46:13', 1),
-(106, 1, '2019-12-03 12:50:40', 1),
-(106, 1, '2019-12-03 12:59:12', 1),
-(106, 1, '2019-12-03 13:00:37', 1),
-(107, 1, '2019-12-03 12:50:40', 1),
-(107, 1, '2019-12-03 12:52:17', 1),
-(108, 1, '2019-12-03 12:50:30', 1),
-(108, 3, '2019-12-03 12:50:40', 1),
-(108, 1, '2019-12-03 12:52:17', 1),
-(109, 1, '2019-12-03 12:46:58', 1),
-(109, 1, '2019-12-03 12:47:51', 1),
-(109, 1, '2019-12-03 12:47:52', 1),
-(110, 1, '2019-12-03 12:46:58', 1),
-(110, 1, '2019-12-03 12:47:51', 1),
-(110, 1, '2019-12-03 12:47:52', 1),
-(110, 1, '2019-12-03 12:48:28', 1),
-(110, 1, '2019-12-03 12:49:58', 1),
-(110, 1, '2019-12-03 12:57:19', 1),
-(110, 1, '2019-12-03 12:59:33', 1),
-(111, 1, '2019-12-03 12:46:13', 1),
-(111, 1, '2019-12-03 12:48:28', 1),
-(111, 1, '2019-12-03 12:50:30', 1),
-(112, 1, '2019-12-03 12:45:55', 1),
-(112, 1, '2019-12-03 12:46:13', 1),
-(112, 1, '2019-12-03 12:49:01', 1),
-(112, 1, '2019-12-03 12:49:02', 1),
-(112, 1, '2019-12-03 12:49:58', 1),
-(112, 1, '2019-12-03 12:50:30', 1),
-(112, 1, '2019-12-03 12:51:08', 1),
-(112, 1, '2019-12-03 12:57:19', 1),
-(114, 1, '2019-12-03 12:45:55', 1),
-(114, 1, '2019-12-03 12:51:08', 1),
-(114, 1, '2019-12-03 12:51:54', 1),
-(114, 1, '2019-12-03 12:52:17', 1),
-(114, 1, '2019-12-03 12:58:42', 1);
+('al', 'al', 'YWw=', 3),
+('mimosa', 'mimosa', 'bWltb3Nh', 5);
 
 -- --------------------------------------------------------
 
@@ -114,10 +60,9 @@ CREATE TABLE `categorias` (
 --
 
 INSERT INTO `categorias` (`catcodig`, `catdescr`) VALUES
-(1, 'cuzao'),
-(2, 'saladas'),
 (3, 'Massas'),
-(6, 'comidinha de mamae');
+(6, 'comidinha de mamae'),
+(8, 'refrigerantes');
 
 -- --------------------------------------------------------
 
@@ -139,8 +84,15 @@ CREATE TABLE `clientes` (
 
 INSERT INTO `clientes` (`clicodig`, `clinome`, `cliemail`, `clisenha`, `climagem`) VALUES
 (130, 'aaa', 'adsadsas', 'YXNkYWRzYWRz', '0.png'),
-(131, 'alice', 'alice', 'YWxpY2U=', '0.png'),
-(132, 'alo', 'alo', 'YWxv', '0.png');
+(132, 'alo', 'alo', 'alo', '132.jpg'),
+(133, 'alice quadros', 'alicequadros63@gmail.com', 'YWxpY2U=', '0.png'),
+(134, 'asdads', 'asasd', 'YWFkc2Fkc2Fkcw==', '0.png'),
+(135, '', '', '', '0.png'),
+(136, '', '', '', '0.png'),
+(138, 'ali', 'ali', 'YWxp', '0.png'),
+(139, 'alicinha', 'alicinha', 'YWxpY2luaGE=', '139.jpg'),
+(140, 'alice', 'aliice', 'YWxpY2U=', '140.jpg'),
+(141, 'alll', 'allla', 'YWxhbGFsYQ==', '141.png');
 
 -- --------------------------------------------------------
 
@@ -150,6 +102,7 @@ INSERT INTO `clientes` (`clicodig`, `clinome`, `cliemail`, `clisenha`, `climagem
 
 CREATE TABLE `pedidos` (
   `pedcodig` int(255) NOT NULL,
+  `pedata` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
   `clicodig` int(255) NOT NULL,
   `procodig` int(255) NOT NULL,
   `pedquant` int(255) NOT NULL,
@@ -160,10 +113,11 @@ CREATE TABLE `pedidos` (
 -- Extraindo dados da tabela `pedidos`
 --
 
-INSERT INTO `pedidos` (`pedcodig`, `clicodig`, `procodig`, `pedquant`, `pedtotal`) VALUES
-(1, 6, 99, 3, 27),
-(2, 6, 99, 1, NULL),
-(3, 6, 99, 1, NULL);
+INSERT INTO `pedidos` (`pedcodig`, `pedata`, `clicodig`, `procodig`, `pedquant`, `pedtotal`) VALUES
+(6, '2019-12-11 16:41:54.567951', 0, 100, 1, 6),
+(7, '2019-12-11 16:41:54.567951', 0, 99, 3, 27),
+(8, '2019-12-11 16:41:54.567951', 3, 99, 1, 9),
+(9, '2019-12-11 16:41:54.567951', 3, 100, 1, 6);
 
 -- --------------------------------------------------------
 
@@ -186,8 +140,13 @@ CREATE TABLE `produtos` (
 --
 
 INSERT INTO `produtos` (`procodig`, `pronome`, `promarca`, `procateg`, `propreco`, `proestoq`, `proimagem`) VALUES
-(98, 'cca cola', 'coca cola', 6, '7.99', 0, '98.jpg'),
-(99, 'cocacola', 'coca cola', 6, '9.00', 0, '99.jpg');
+(99, 'coca cola', 'coca cola', 8, '4.99', 0, '99.jpg'),
+(100, 'sprite', 'coca cola', 8, '5.00', 20, '100.jpg'),
+(101, 'pizza', 'sadia', 3, '22.00', 0, '101.jpg'),
+(103, 'massa', 'isabela', 3, '2.00', 0, '103.jpg'),
+(104, 'chocolate ao leite', 'nestle', 3, '6.00', 0, '104.jpg'),
+(105, 'sadsad', 'saddsaa', 3, '22.00', 0, '105.jpg'),
+(106, 'asddsa', 'asdads', 3, '1.00', 0, '106.jpg');
 
 --
 -- Indexes for dumped tables
@@ -232,31 +191,31 @@ ALTER TABLE `produtos`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admcodig` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `admcodig` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `catcodig` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `catcodig` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `clicodig` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
+  MODIFY `clicodig` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
 
 --
 -- AUTO_INCREMENT for table `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `pedcodig` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `pedcodig` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `procodig` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+  MODIFY `procodig` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 
 --
 -- Constraints for dumped tables
