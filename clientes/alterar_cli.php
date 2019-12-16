@@ -19,25 +19,45 @@ if(@$_SESSION['admemail'])
 else if (@$_SESSION['cliemail'])
 {
     if (isset($_POST['voltar']))
-{
-    header('Location: ../home.php');
-}
+    {
+        header('Location: ../home.php');
+    }
 }
 
-if ( $imagem == null)
+$sql = "SELECT `climagem` FROM clientes WHERE `clicodig` = ?";
+$retorno = fazConsultaSegura($sql, array($codigo));
+$img = $retorno[0]['climagem'];
+
+if($_POST['deletar'])
 {
-    $sql = "SELECT `climagem` FROM clientes WHERE `clicodig` = ?";
-    $retorno = fazConsultaSegura($sql, array($codigo));
     if ($retorno[0]['climagem'] != "0.png")
     {
-        $sql = "UPDATE `produtos` SET `pronome` = ?, `promarca` = ?, `propreco` = ? WHERE `procodig` = ?";
-        $retorno = fazConsultaSegura($sql, array($nome, $marca, $preco, $codigo));
-        header('Location: ../mostra_adm.php');
+       unlink("../upload/" . $img);
     }
+    $cu = "0.png";
+    $sql = "UPDATE `clientes` SET `clinome` = ?, `cliemail` = ?, `clisenha` = ?, `climagem` = ? WHERE `clicodig` = ?";
+    $retorno = fazConsultaSegura($sql, array($nome, $email, $senha, $cu, $codigo));
+    header('Location: ../home.php');
+    
+}
+else
+{
+    header('Location: ../home.php');   
+}
+if ( $imagem == null)
+{
+    if ($retorno[0]['climagem'] != "0.png")
+    {
+        $sql = "UPDATE `clientes` SET `clinome` = ?, `cliemail` = ?, `clisenha` = ? WHERE `clicodig` = ?";
+        $retorno = fazConsultaSegura($sql, array($nome, $email, $senha, $codigo));
+        header('Location: ../home.php');
+    }
+
 
 }
 else
 {
+    unlink("../upload/" . $img);
     include_once ("../upload.php");   
     $sql = "UPDATE `clientes` SET `clinome` = ?, `cliemail` = ?, `clisenha` = ?, `climagem` = ? WHERE `clicodig` = ?";
     $retorno = fazConsultaSegura($sql, array($nome, $email, $criptografada, $arquivo, $codigo));

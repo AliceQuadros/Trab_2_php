@@ -17,6 +17,7 @@ $senhaDescriptografada = base64_decode($senha);
     *Senha: <input type="password" name="senha" value="<?=$senhaDescriptografada?>"><br>
     **Enviar Imagem:<input type="file" name="upload"><br>
     Imagem Antiga:<br> <img src="../upload/<?=$retorno[0]['climagem']?>"><br>
+    <button name="deletar" value="deletar">Deletar Imagem e Salvar</button>
     <button name="salvar" value="salvar">Salvar</button>
     <button name="voltar">Voltar</button>
     <br>

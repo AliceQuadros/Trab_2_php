@@ -120,7 +120,7 @@ foreach ($retorno as $item)
                         let botao = criaElemento('button');
                         botao.innerText = '+';
                         let img = criaElemento('img');
-                        img.innerText = '<img scr="upload/0.png">';
+                        img.src = `upload_pro/${objJSON[i].proimagem}`;
                         
                     
                     botao.addEventListener('click',function(e){
@@ -132,6 +132,10 @@ foreach ($retorno as $item)
                     li.appendChild(input);
                     li.appendChild(botao);
                     ul.appendChild(li);
+
+                    li.appendChild(img)
+                    
+
                 }
               
              });

@@ -37,7 +37,6 @@ if (@$_SESSION['admemail'])
         <?php
         
     }
-}
 
 ?>
 <!--///////////////////////////////////////////////////////////////// CATEGORIAS/////////////////////////////////////////////////////////////////-->
@@ -123,3 +122,9 @@ foreach ($retorno3 as $item)
 
 }
 
+}
+else
+{
+    echo"Você não é um administrador!<br>";
+    echo"Página somente para administradores.";
+}

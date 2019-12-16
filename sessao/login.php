@@ -45,7 +45,6 @@ $sql = "SELECT * FROM `admin`";
         include("login_form.php");
     }
 
-var_dump($_SESSION);
   
         
 
