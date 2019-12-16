@@ -1,3 +1,4 @@
+<head><link rel="stylesheet" href="../style/style.css"></head>
 <?php
 // pegar dados
 // fazer testes
@@ -15,11 +16,11 @@ $senhaDescriptografada = base64_decode($senha);
     *Nome: <input type="text" name="nome" value="<?=$retorno[0]['clinome']?>"><br>
     *E-mail: <input type="text" name="email" value="<?=$retorno[0]['cliemail']?>"><br>
     *Senha: <input type="password" name="senha" value="<?=$senhaDescriptografada?>"><br>
-    **Enviar Imagem:<input type="file" name="upload"><br>
+    **Enviar Imagem:<input  type="file" name="upload"><br>
     Imagem Antiga:<br> <img src="../upload/<?=$retorno[0]['climagem']?>"><br>
-    <button name="deletar" value="deletar">Deletar Imagem e Salvar</button>
-    <button name="salvar" value="salvar">Salvar</button>
-    <button name="voltar">Voltar</button>
+    <button class="btn" name="deletar" value="deletar">Deletar Imagem e Salvar</button>
+    <button class="btn" name="salvar" value="salvar">Salvar</button>
+    <button class="btn" name="voltar">Voltar</button>
     <br>
     *Campos obrigatórios.<br>
     **Caso não enviar nenhuma imagem, irá imagem padrão.<br>

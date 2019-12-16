@@ -1,3 +1,4 @@
+<head><link rel="stylesheet" href="../style/style.css"></head>
 <?php
 session_start(); 
 include_once "../funcoes.php";

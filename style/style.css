@@ -1,3 +1,161 @@
+.header
+{
+  width: 100%;
+  background-color:#ece4d2 ;
+  padding: 10px 0;
+  top: 0;
+  position: fixed;
+  z-index: 1;
+  
+}
+.header::after{
+
+}
+.header_menu{
+  margin: 20px;
+}
+
+.header_menu  li {
+  margin-left: 25px;
+  float: left;
+  display: inline-block;
+;
+
+}
+
+.header_menu li a{
+  color:#e00909 ;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 10px 0;
+
+}
+.header_menu li a.menu-ativo{
+  color: #fff;
+}
+
+
+.header_menu li a.menu-ativo::after{
+  color: #fff;
+  content: "";
+  display: block;
+  width: 33px;
+  height: 3px;
+  background:#fff;
+  margin: 6px auto;
+}
+
+
+
+.header_menu  li a:hover {
+  color: #fff;
+}
+
+.botoes{
+  flex-direction: column;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.link
+{
+  text-decoration: none;
+  /* color: #e00909; */
+}
+/* .link:hover{
+  color: rgb(255, 255, 255);
+} */
+.btn{
+    padding: 8px 10px;
+    margin-top: 10px ;
+    border: 3px solid #e00909;
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-weight: bold;
+    color: #e00909;
+    background: transparent;
+    
+}
+
+.btn:hover{
+    background-color: #e00909;
+    color: rgb(255, 255, 255);
+}
+/* .btn::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 150%;
+  width: 200%;
+  height: 100%;
+  transform: skewX(-20deg);
+  /* background-image: linear-gradient(to right, transparent, rgba(255,255,255,0.25), transparent); */
+
+
+.btn_pesquisa{
+  margin: 0;
+  margin-left:10px ;
+  height:30px;
+  padding: 4px 10px;
+}
+
+
+.pesquisa:focus{
+  width: 250px;
+  height: 40px;
+  border-color:black;
+  
+}
+.pesquisa::placeholder
+{
+  color:#e00909;
+}
+input{
+  outline: none;
+  border-color:#e00909;
+  width: 150px;
+  height: 30px;
+  transition: width 1.5s;
+  color: black;
+  border-radius: 4px;
+  
+}
+img {
+  max-width: 200px;
+  min-width: 200px;
+  max-height: 300px;
+  min-height: 300px;
+}
+
+.barra_pesquisa{
+  float: right;
+  display: flex;
+
+}
+
+
+
+
+
+
+
+
+
+
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -36,4 +194,9 @@
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+footer
+{
+  background-color:#ece4d2 ;
+  padding: 30px;
 }

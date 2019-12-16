@@ -1,6 +1,11 @@
+<head>
+        <link rel="stylesheet" href="padroes/normalize.css">
+	    <link rel="stylesheet" href="padroes/reset.css">
+	    <link rel="stylesheet" href="padroes/grid.css">
+	    <link rel="stylesheet" href="style/style.css">
+        <script src="jquery-3.4.1.min.js"></script>
+    </head>
 <?php
-
-// imagem para qd edstá logado
 session_start();
 include_once "header.php";
 $cod = @$_SESSION['clicodig'];
@@ -14,33 +19,28 @@ if (@$_SESSION['clicodig'])
 ?>
 
 <html>
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="padroes/normalize.css">
-	    <link rel="stylesheet" href="padroes/reset.css">
-	    <link rel="stylesheet" href="padroes/grid.css">
-	    <link rel="stylesheet" href="css/style.css">
-        <script src="jquery-3.4.1.min.js"></script>
-    </head>
     <body>
-        <h1>Produtos</h1>
-            <div id="lista">
-                ...
-            </div>    
-        <hr>
+        <div class="container">
+                <h1>Produtos</h1>
+                <div id="lista">
+                    ..
+                </div>    
+        </div>
+        <div class="container">
 
-        <h2>Carrinho de produtos:</h2>
-        <div>
-            <form id="form1">
-                Código do usuário: <input type="text" name="usucodig" size="2" value="<?=$cod?>">
-            <ul id="carrinho">
-
-            </ul>
-            </form>
-            <button id="btfim">Finalizar compra</button>
-            <div id="saida">
-                    
-            </div>  
+            <h2>Carrinho de produtos:</h2>
+            <div>
+                <form id="form1">
+                    Código do usuário: <input type="text" name="usucodig" size="2" value="<?=$cod?>">
+                <ul id="carrinho">
+    
+                </ul>
+                </form>
+                <button id="btfim">Finalizar compra</button>
+                <div id="saida">
+                        
+                </div>  
+            </div>
         </div>
         <?php
     }
@@ -56,23 +56,30 @@ else
         <script src="jquery-3.4.1.min.js"></script>
     </head>
     <body>
+    <div class="container ">
+
         <h1>Produtos</h1>
             
-<?php
-foreach ($retorno as $item) 
-{
-    ?>
-    
-    <?=$item['pronome'];?>
-    <?=$item['promarca'];?>
-    <?=$item['propreco'];?>
-    <img src="upload_pro/<?= $item['proimagem']; ?>" alt="imagem do post">
- 
-<?php
-}
+    <?php
+    foreach ($retorno as $item) 
+    {
+        ?>
+            <div class="grid-4 ">
+                <?=$item['pronome'];?>
+                <?=$item['promarca'];?>
+                <?=$item['propreco'];?>
+                <img class="img" src="upload_pro/<?= $item['proimagem']; ?>" alt="imagem do post">
+            </div>
+    <?php
+    }
+   ?>
+    </div>
+
+   <?php
 }
 ?>
-        <hr>
+
+        
 
 
         <script>
@@ -132,8 +139,7 @@ foreach ($retorno as $item)
                     li.appendChild(input);
                     li.appendChild(botao);
                     ul.appendChild(li);
-
-                    li.appendChild(img)
+                    li.appendChild(img);
                     
 
                 }
@@ -158,6 +164,14 @@ foreach ($retorno as $item)
                  botaoExcluir.addEventListener('click',function(e){
                             this.parentElement.parentElement.removeChild(liAux);
                 });
+                // const botaoAdd = document.createElement("button");
+                // botaoAdd.innerText = "+";
+                // botaoAdd.addEventListener('click',function(e){
+                //     const liCar = document.getElementById(`liaux${cod}`);
+                //     const input = liCar.getElementsByTagName("input")[1];
+                //     input.value = parseInt(input.value) + 1;
+                // });
+                // liAux.appendedChild(botaoAdd);
                 liAux.appendChild(input);
                 liAux.appendChild(botaoExcluir);
                 ulDest.appendChild(liAux);

@@ -13,5 +13,4 @@ if (isset($_POST['voltar']))
 
 $sql = "UPDATE `admin` SET `admnome` = ?, `admemail` = ?, `admsenha` = ? WHERE `admcodig` = ?";
 $retorno = fazConsultaSegura($sql, array($nome, $email,$criptografada,$codigo));
-
-// echo("alterado com sucesso de: " . $descricaoantiga . " para: " . $descricao  );
+header('Location: ../mostra_adm.php');

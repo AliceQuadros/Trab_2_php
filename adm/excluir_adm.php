@@ -9,6 +9,7 @@ if (isset($_POST['voltar']))
 else{
     $sql = "delete from admin where admcodig = ?";
     fazConsultaSegura($sql, array($codigo));
+    header('Location: ../mostra_adm.php');
     
     
 }

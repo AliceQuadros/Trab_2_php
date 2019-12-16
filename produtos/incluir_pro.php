@@ -7,9 +7,6 @@ $nome = $_POST['nome'];
 $marca = $_POST['marca'];
 $preco = $_POST['preco'];
 $categoria = $_POST['categoria'];
-echo $categoria;
-die();
-
 
 if (isset($_POST['voltar']))
 {

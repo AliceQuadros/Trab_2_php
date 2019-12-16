@@ -1,3 +1,4 @@
+<head><link rel="stylesheet" href="../style/style.css"></head>
 <?php
 // pegar dados
 // fazer testes
@@ -18,8 +19,8 @@ $retorno2 = fazConsultaSegura($sql);
     *Categoria:<?=geraSelect($retorno2,'categoria')?><br>
     *Preço: <input type="text" name="preco" value="<?=$retorno[0]['propreco']?>"><br>
     *Enviar Imagem: <input type="file" name="upload"><br>
-    <button type="submit" name="salvar" value="salvar">Salvar</button>
-    <button name="voltar">Voltar</button>
+    <button class="btn" type="submit" name="salvar" value="salvar">Salvar</button>
+    <button class="btn" name="voltar">Voltar</button>
     <br>
     *Campos obrigatórios.<br>
     </form>

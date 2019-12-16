@@ -1,3 +1,4 @@
+<head><link rel="stylesheet" href="../style/style.css"></head>
 <?php
 $codigo = $_POST['alterar'];
 $descricao = '';
@@ -8,7 +9,7 @@ $descricaoantiga = $_POST['descricao_antiga']
     Código: <input type="text" name="codigo" value="<?=$codigo?>" readonly>
     *Descrição: <input type="text" name="descricao">
     <input hidden name="descricao_antiga" value="<?=$descricaoantiga;?>">
-    <button name="salvar" value="salvar">Salvar</button>
-    <button name="voltar">Voltar</button>
+    <button class="btn" name="salvar" value="salvar">Salvar</button>
+    <button class="btn" name="voltar">Voltar</button>
     </form>
 </div>
