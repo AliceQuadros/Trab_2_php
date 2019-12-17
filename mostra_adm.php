@@ -15,6 +15,7 @@ include_once "funcoes.php";
 if (@$_SESSION['admemail'])
 {
     ?>
+    <div class="margem">
     <div class="container">
     <h2>Administradores</h2>
     <form action="adm/incluir_adm_form.php"  method="POST">
@@ -26,15 +27,17 @@ if (@$_SESSION['admemail'])
     foreach ($retorno1 as $item) 
     {
         ?>
-        <div class="grid-4">
-        <?=$item['admnome'];?><br>
-        <?=$item['admemail'];?><br>
-            <form action="adm/alterar_adm_form.php"  method="POST">
-                <button class="btn" type="submit" name="alterar" value="<?= $item['admcodig']; ?>">Alterar</button>
-            </form>
-            <form action="adm/excluir_adm_teste.php"  method="POST">
-                <button class="btn" type="submit" name="excluir" value="<?= $item['admcodig']; ?>">Excluir</button>
-            </form>
+        <div class="grid-5 card">
+            <?=$item['admnome'];?><br>
+            <?=$item['admemail'];?><br>
+            <div class="flex">
+                    <form action="adm/alterar_adm_form.php"  method="POST">
+                        <button class="btn" type="submit" name="alterar" value="<?= $item['admcodig']; ?>">Alterar</button>
+                    </form>
+                    <form action="adm/excluir_adm_teste.php"  method="POST">
+                        <button class="btn" type="submit" name="excluir" value="<?= $item['admcodig']; ?>">Excluir</button>
+                    </form>
+            </div>
         </div>
             
         <?php
@@ -57,14 +60,16 @@ $retorno2 = fazConsultaSegura($sql);
 foreach ($retorno2 as $item) 
 {
     ?>
-    <div class="grid-4">
+    <div class="grid-5 card">
     <?=$item['catdescr'];?>
-    <form action="categorias/alterar_cat_form.php"  method="POST">
-        <button class="btn" type="submit" name="alterar" value="<?= $item['catcodig']; ?>">Alterar</button>
-    </form>
-    <form action="categorias/excluir_cat_teste.php"  method="POST">
-        <button class="btn" type="submit" name="excluir" value="<?= $item['catcodig']; ?>">Excluir</button>
-    </form>
+        <div class="flex">
+            <form action="categorias/alterar_cat_form.php"  method="POST">
+                <button class="btn" type="submit" name="alterar" value="<?= $item['catcodig']; ?>">Alterar</button>
+            </form>
+            <form action="categorias/excluir_cat_teste.php"  method="POST">
+                <button class="btn" type="submit" name="excluir" value="<?= $item['catcodig']; ?>">Excluir</button>
+            </form>
+        </div>
     </div>
     <?php
     
@@ -87,22 +92,20 @@ $retorno3 = fazConsultaSegura($sql);
 foreach ($retorno3 as $item) 
 {
     ?>
-<div class="grid-4">
-    <?=$item['pronome'];?><br>
-    <?=$item['promarca'];?><br>
-    <?=$item['propreco'];?><br>
-    <img class="img" src="upload_pro/<?= $item['proimagem']; ?>" alt="imagem do post">
- 
-    <div class="botoes">
-
-        <form action="produtos/alterar_pro_form.php"  method="POST">
-            <button class="btn" type="submit" name="alterar" value="<?= $item['procodig']; ?>">Alterar</button>
-        </form>
-                <form action="produtos/excluir_pro_teste.php"  method="POST">
-                    <button class="btn" type="submit" name="excluir" value="<?= $item['procodig']; ?>">Excluir</button>
-                </form>
-    </div>
-        </div>     
+    <div class="grid-5 card ">
+        <?=$item['pronome'];?><br>
+        <?=$item['promarca'];?><br>
+        <?=$item['propreco'];?><br>
+        <img class="img" src="upload_pro/<?= $item['proimagem']; ?>" alt="imagem do post">
+        <div class="flex">
+            <form action="produtos/alterar_pro_form.php"  method="POST">
+                <button class="btn" type="submit" name="alterar" value="<?= $item['procodig']; ?>">Alterar</button>
+            </form>
+            <form action="produtos/excluir_pro_teste.php"  method="POST">
+                <button class="btn" type="submit" name="excluir" value="<?= $item['procodig']; ?>">Excluir</button>
+            </form>
+        </div>
+    </div>     
     <?php
     
 }
@@ -124,7 +127,7 @@ $retorno3 = fazConsultaSegura($sql);
 foreach ($retorno3 as $item) 
 {
     ?>
-    <div class="grid-4">    
+    <div class="grid-5 card">    
     <?=$item['clinome'];?><br>
     <?=$item['cliemail'];?><br>
     <img class="img" src="upload/<?= $item['climagem']; ?>" alt="imagem do post">
@@ -136,6 +139,7 @@ foreach ($retorno3 as $item)
 
 }
 ?>
+</div>
 </div>
 <?php
 }

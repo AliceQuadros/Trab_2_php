@@ -1,48 +1,25 @@
 <head>
-        <link rel="stylesheet" href="padroes/normalize.css">
-	    <link rel="stylesheet" href="padroes/reset.css">
-	    <link rel="stylesheet" href="padroes/grid.css">
-	    <link rel="stylesheet" href="style/style.css">
         <script src="jquery-3.4.1.min.js"></script>
-    </head>
+</head>
 <?php
 session_start();
 include_once "header.php";
-$cod = @$_SESSION['clicodig'];
 if (@$_SESSION['amdcodig'])
 {
     echo"você não pode comprar como adiministrador!";
 }
-if (@$_SESSION['clicodig'])
+   if (@$_SESSION['clicodig'])
 {
 
 ?>
-
-<html>
-    <body>
-        <div class="container">
+        <div class="container margem">
                 <h1>Produtos</h1>
                 <div id="lista">
                     ..
                 </div>    
-        </div>
-        <div class="container">
-
-            <h2>Carrinho de produtos:</h2>
-            <div>
-                <form id="form1">
-                    Código do usuário: <input type="text" name="usucodig" size="2" value="<?=$cod?>">
-                <ul id="carrinho">
-    
-                </ul>
-                </form>
-                <button id="btfim">Finalizar compra</button>
-                <div id="saida">
-                        
-                </div>  
-            </div>
-        </div>
+        </div>       
         <?php
+        
     }
 else
 {
@@ -50,13 +27,13 @@ else
     $sql = "SELECT * FROM produtos";
     $retorno = fazConsultaSegura($sql);
     ?>
-    <html>
+    
     <head>
         <meta charset="utf-8">
         <script src="jquery-3.4.1.min.js"></script>
     </head>
-    <body>
-    <div class="container ">
+    
+    <div class="container margem ">
 
         <h1>Produtos</h1>
             
@@ -64,11 +41,11 @@ else
     foreach ($retorno as $item) 
     {
         ?>
-            <div class="grid-4 ">
+            <div class="grid-4 card ">
                 <?=$item['pronome'];?>
                 <?=$item['promarca'];?>
                 <?=$item['propreco'];?>
-                <img class="img" src="upload_pro/<?= $item['proimagem']; ?>" alt="imagem do post">
+                <img class="img" src="upload_pro/<?= $item['proimagem']; ?>">
             </div>
     <?php
     }
@@ -78,7 +55,6 @@ else
    <?php
 }
 ?>
-
         
 
 
@@ -100,11 +76,15 @@ else
                                 console.log(data);
                                 var resposta = JSON.parse(data);
                                 if (resposta.erro == "0") {
-                                    saida.innerText ="incluído com sucesso!";
+                                    alert("Compra concluída com sucesso!");
+                                    var lis = document.querySelectorAll('#carrinho li');
+                                    for(var i=0; li=lis[i]; i++) {
+                                        li.parentNode.removeChild(li);
+                                    }
                                     
                                 }
                                 else {
-                                    saida.innerText  =  "erro gravando";
+                                    saida.innerText  =  "Ocorreu um erro ao finalizar a compra";
                                 }
                             });
                         }
@@ -128,18 +108,27 @@ else
                         botao.innerText = '+';
                         let img = criaElemento('img');
                         img.src = `upload_pro/${objJSON[i].proimagem}`;
-                        
-                    
-                    botao.addEventListener('click',function(e){
+                        const text = criaElemento('p');
+                        const text2 = criaElemento('p');
+                        botao.setAttribute('class','btn');
+                        img.setAttribute('class','img');
+                        li.setAttribute('class','grid-6 card');                   
+                        botao.addEventListener('click',function(e){
                         e.preventDefault;
                         poeNoCarrinho(this.parentElement);
                     });
+                  
+                            li.appendChild(text);
+                            text.innerText = `${decodeURI(objJSON[i].pronome)}  -  ${decodeURI(objJSON[i].promarca)}`;
+                            li.appendChild(input);
+                            li.appendChild(img);
+                            li.appendChild(text2);
+                            text2.innerText=` R$:${decodeURI(objJSON[i].propreco)}`;
+                            li.appendChild(botao);
+                            ul.appendChild(li);
+                            
+                     
                     
-                    li.innerText = ` ${objJSON[i].procodig}  ${decodeURI(objJSON[i].pronome)}  -  ${decodeURI(objJSON[i].promarca)}`;
-                    li.appendChild(input);
-                    li.appendChild(botao);
-                    ul.appendChild(li);
-                    li.appendChild(img);
                     
 
                 }
@@ -164,14 +153,21 @@ else
                  botaoExcluir.addEventListener('click',function(e){
                             this.parentElement.parentElement.removeChild(liAux);
                 });
+                botaoExcluir.setAttribute('class','btn');
+
+
+
                 // const botaoAdd = document.createElement("button");
                 // botaoAdd.innerText = "+";
-                // botaoAdd.addEventListener('click',function(e){
+                // botaoAdd.addEventListener('click',function(e,cod){
                 //     const liCar = document.getElementById(`liaux${cod}`);
                 //     const input = liCar.getElementsByTagName("input")[1];
                 //     input.value = parseInt(input.value) + 1;
                 // });
                 // liAux.appendedChild(botaoAdd);
+
+
+
                 liAux.appendChild(input);
                 liAux.appendChild(botaoExcluir);
                 ulDest.appendChild(liAux);
@@ -196,4 +192,8 @@ else
             return $e;
         }
     });
+
+
+
+
         </script>

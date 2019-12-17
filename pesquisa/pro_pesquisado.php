@@ -1,15 +1,14 @@
-<table>
-<h2>Itens que você pode estar procurando</h2>
-    <tr>
-        <td><?=$item['pronome'];?></td>
-    </tr>
-    <tr>
-        <td><?=$item['promarca'];?></td>
-    </tr>
-    <tr>
-        <td><?=$item['propreco'];?></td>
-    </tr>
-        <tr>
-            <td><img src="../upload_pro/<?=$item['proimagem'];?>"></td>
-        </tr>
-</table>
+<link rel="stylesheet" href="../style/style.css">
+<link rel="stylesheet" href="../padroes/grid.css">
+
+ 
+        
+            <div class="card grid-4">
+            <?=$item['pronome'];?>
+            <?=$item['promarca'];?>
+            <?=$item['propreco'];?>
+            <img class="img" src="../upload_pro/<?= $item['proimagem']; ?>" >
+        
+        </div>
+  
+        

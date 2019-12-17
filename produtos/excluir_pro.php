@@ -10,6 +10,7 @@ else{
     try {
         $sql = "delete from produtos where procodig = ?";
         fazConsultaSegura($sql, array($codigo));
+        header('Location: ../mostra_adm.php');
     } catch ( thrown $error) {
         echo ($error);
     }

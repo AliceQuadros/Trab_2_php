@@ -1,12 +1,13 @@
+<link rel="stylesheet" href="../style/style.css">
 <div class="container">
-    <form action="incluir_cli.php" method="POST" enctype="multipart/form-data">
-    *Nome: <input type="text" name="nome" value="<?=@$nome?>"><br>
-    *E-mail: <input type="text" name="email" value="<?=@$email?>"><br>
-    *Senha: <input type="password" name="senha" value="<?=@$senha?>"><br>
-    Enviar Imagem: <input type="file" name="upload"><br>
-    <button name="salvar" value="salvar">Salvar</button>
-    <button name="voltar">Voltar</button>
-    *Campos obrigatórios.<br>
-    **Caso não enviar nenhuma imagem, irá imagem padrão.<br>
+    <form action="clientes/incluir_cli.php" method="POST" enctype="multipart/form-data">
+    <p>*Nome:</p> <input type="text" name="nome" value="<?=@$nome?>"><br>
+    <p>*E-mail:</p> <input type="text" name="email" value="<?=@$email?>"><br>
+    <p>*Senha:</p> <input type="password" name="senha" value="<?=@$senha?>"><br>
+    <p>Enviar Imagem:</p> <input type="file" name="upload"><br>
+    <button class="btn" name="salvar" value="salvar">Salvar</button>
+    <button class="btn" name="voltar">Voltar</button>
+    <p>*Campos obrigatórios.</p><br>
+    <p>**Caso não enviar nenhuma imagem, irá imagem padrão.</p><br>
     </form>
 </div>

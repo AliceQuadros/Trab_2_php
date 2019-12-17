@@ -1,5 +1,8 @@
+<link rel="stylesheet" href="../style/style.css">
 <?php
+@session_start();
 include_once "../funcoes.php";
+
 @$busca = trim($_POST['busca']);
 
 if (strlen($busca) == 0) {
@@ -19,17 +22,33 @@ if (isset($_POST['pesquisar'])) {
         }
 
         if (is_array(@$resultado) && $busca != '') {
-
+            ?>
+            <div class="container"><h2>Itens que você pode estar procurando</h2></div> 
+            <?php
+            
             if (count($resultado) > 0) {
-
+                
                 foreach ($resultado as $item) {
+                    ?>
+                <div class="container  ">
+                <?php
                     include('pro_pesquisado.php');
+                    ?>
+                </div>
+                <?php
                 }
-            } else {
-
-                echo"sem registros";
+                
             }
-        } else { //caso contrário mostra o erro retornado
+            
+            else {
+                $_SESSION['pro'] = 'Sem Registros';
+                header('Location: ../home.php');
+
+            }
+           ?>
+            <div class="container"><button class="btn " type="submit" name="voltar">Voltar</button> </div> 
+            <?php
+        } else { 
             echo ("<pre>");
             print_r(@$resultado);
             echo ("</pre>");

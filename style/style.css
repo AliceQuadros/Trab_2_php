@@ -1,3 +1,23 @@
+td, a, h1, h2,h3,h4,li,a,p {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 20px;
+}
+h1, h2{
+  color: #e00909;
+  font-size: 25px;
+  text-shadow:2px 2px 2px rgb(0,0,0) ;
+  font-weight: bold;
+}
+h3{
+  color: #e00909;
+  font-size: 18px;
+  text-shadow:0px 1px 1px rgb(0,0,0) ;
+  font-weight: bold;
+}
+p{
+  font-size: 18px;
+  color: #000;
+}
 .header
 {
   width: 100%;
@@ -6,11 +26,11 @@
   top: 0;
   position: fixed;
   z-index: 1;
+  display: block;
+  
   
 }
-.header::after{
 
-}
 .header_menu{
   margin: 20px;
 }
@@ -19,7 +39,7 @@
   margin-left: 25px;
   float: left;
   display: inline-block;
-;
+
 
 }
 
@@ -48,35 +68,20 @@
   margin: 6px auto;
 }
 
-
-
 .header_menu  li a:hover {
-  color: #fff;
+  color:black;
 }
 
 .botoes{
   flex-direction: column;
 }
 
-
-
-
-
-
-
-
-
-
-
-
 .link
 {
   text-decoration: none;
-  /* color: #e00909; */
+
 }
-/* .link:hover{
-  color: rgb(255, 255, 255);
-} */
+
 .btn{
     padding: 8px 10px;
     margin-top: 10px ;
@@ -116,7 +121,6 @@
 
 .pesquisa:focus{
   width: 250px;
-  height: 40px;
   border-color:black;
   
 }
@@ -131,35 +135,63 @@ input{
   height: 30px;
   transition: width 1.5s;
   color: black;
-  border-radius: 4px;
   
 }
-img {
-  max-width: 200px;
-  min-width: 200px;
-  max-height: 300px;
-  min-height: 300px;
+.card {
+  max-width: 300px;
+  height: 330px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center ;
+  flex-direction: column;
+  color: black;
+  border: solid 2px;
+  justify-content: space-around;
+  margin: 5px 5px 5px 0px;
+  
 }
+.img {
+  max-width: 200px;
+  max-height: 200px;
+
+}
+ img {
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0;
+    padding:0px;
+  }
 
 .barra_pesquisa{
   float: right;
   display: flex;
 
 }
+.flex{
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.margem {
+  margin-top: 80px;
+}
+
+.login{
+display: flex;
+justify-content: space-between;
+}
+.logar{
+  margin-top:60px;
+}
 
 
 
-
-
-
-
-
-
-
+/* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 2; /* Sit on top */
+  z-index: 1; /* Sit on top */
   padding-top: 100px; /* Location of the box */
   left: 0;
   top: 0;
@@ -176,9 +208,9 @@ img {
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 500px;
-  height: 500px;
-  border-radius: 10%;
+  width: 80%;
+  display: flex;
+  flex: 1;
 }
 
 /* The Close Button */
@@ -199,4 +231,5 @@ footer
 {
   background-color:#ece4d2 ;
   padding: 30px;
+  bottom: 0px;
 }
