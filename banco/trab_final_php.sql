@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 17-Dez-2019 às 00:25
+-- Generation Time: 20-Dez-2019 às 22:12
 -- Versão do servidor: 10.1.38-MariaDB
 -- versão do PHP: 7.1.27
 
@@ -40,9 +40,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admnome`, `admemail`, `admsenha`, `admcodig`) VALUES
-('Babika top', 'Babi.gatinha.eu@gmail.com', '294f7e62379b11cc3d2402de26d2a3d7', 2),
-('al', 'al', 'YWw=', 3),
-('mimosa', 'mimosa', 'bWltb3Nh', 5);
+('admilson', 'adminboladao@gmail.com', '578be958e9ee77dd5a13f02211555d87', 1),
+('alice', 'alice', 'YWxpY2U=', 5);
 
 -- --------------------------------------------------------
 
@@ -60,9 +59,10 @@ CREATE TABLE `categorias` (
 --
 
 INSERT INTO `categorias` (`catcodig`, `catdescr`) VALUES
+(2, 'saladas'),
 (3, 'Massas'),
 (6, 'comidinha de mamae'),
-(8, 'refrigerantes');
+(7, 'refrigerantes');
 
 -- --------------------------------------------------------
 
@@ -83,16 +83,7 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`clicodig`, `clinome`, `cliemail`, `clisenha`, `climagem`) VALUES
-(130, 'aaa', 'adsadsas', 'YXNkYWRzYWRz', '0.png'),
-(132, 'alo', 'alo', 'alo', '132.jpg'),
-(133, 'alice quadros', 'alicequadros63@gmail.com', 'YWxpY2U=', '0.png'),
-(134, 'asdads', 'asasd', 'YWFkc2Fkc2Fkcw==', '0.png'),
-(135, '', '', '', '0.png'),
-(136, '', '', '', '0.png'),
-(138, 'ali', 'ali', 'YWxp', '0.png'),
-(139, 'alicinha', 'alicinha', 'YWxpY2luaGE=', '139.jpg'),
-(140, 'alice', 'aliice', 'YWxpY2U=', '140.jpg'),
-(141, 'alll', 'allla', 'YWxhbGFsYQ==', '141.png');
+(133, 'alo', 'alo', 'YWxv', '0.png');
 
 -- --------------------------------------------------------
 
@@ -114,10 +105,15 @@ CREATE TABLE `pedidos` (
 --
 
 INSERT INTO `pedidos` (`pedcodig`, `pedata`, `clicodig`, `procodig`, `pedquant`, `pedtotal`) VALUES
-(6, '2019-12-11 16:41:54.567951', 0, 100, 1, 6),
-(7, '2019-12-11 16:41:54.567951', 0, 99, 3, 27),
-(8, '2019-12-11 16:41:54.567951', 3, 99, 1, 9),
-(9, '2019-12-11 16:41:54.567951', 3, 100, 1, 6);
+(64, '2019-12-10 19:19:41.767254', 131, 1, 2, 20),
+(65, '2019-12-10 19:19:41.773235', 131, 2, 2, 44),
+(66, '2019-12-17 17:01:43.156195', 133, 1, 2, 20),
+(67, '2019-12-17 17:01:43.165310', 133, 2, 4, 88),
+(68, '2019-12-17 17:03:46.272406', 133, 1, 4, 40),
+(69, '2019-12-17 17:03:46.280421', 133, 2, 4, 88),
+(70, '2019-12-17 17:10:19.844956', 134, 1, 4, 40),
+(71, '2019-12-17 17:10:19.852316', 134, 2, 4, 88),
+(72, '2019-12-17 17:10:19.864281', 134, 101, 3, 18);
 
 -- --------------------------------------------------------
 
@@ -140,13 +136,11 @@ CREATE TABLE `produtos` (
 --
 
 INSERT INTO `produtos` (`procodig`, `pronome`, `promarca`, `procateg`, `propreco`, `proestoq`, `proimagem`) VALUES
-(99, 'coca cola', 'coca cola', 8, '4.99', 0, '99.jpg'),
-(100, 'sprite', 'coca cola', 8, '5.00', 20, '100.jpg'),
-(101, 'pizza', 'sadia', 3, '22.00', 0, '101.jpg'),
-(103, 'massa', 'isabela', 3, '2.00', 0, '103.jpg'),
-(104, 'chocolate ao leite', 'nestle', 3, '6.00', 0, '104.jpg'),
-(105, 'sadsad', 'saddsaa', 3, '22.00', 0, '105.jpg'),
-(106, 'asddsa', 'asdads', 3, '1.00', 0, '106.jpg');
+(1, 'coca', 'coca cola', 2, '10.00', 20, '1.jpg'),
+(2, 'pizza', 'sadia', 3, '22.00', 10, '2.jpg'),
+(101, 'sprite', 'coca cola', 7, '6.00', 0, '101.jpg'),
+(102, 'coquinha', 'coca cola', 7, '2.00', 0, '102.jpg'),
+(103, 'coca lata', 'coca cola', 7, '3.00', 0, '103.jpg');
 
 --
 -- Indexes for dumped tables
@@ -197,25 +191,25 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `catcodig` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `catcodig` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `clicodig` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
+  MODIFY `clicodig` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
 
 --
 -- AUTO_INCREMENT for table `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `pedcodig` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `pedcodig` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `procodig` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `procodig` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 
 --
 -- Constraints for dumped tables

@@ -5,34 +5,26 @@ $codigo = $_POST['codigo'];
 
 if(@$_SESSION['admemail'])
 {
-    if ($_POST['nao'])
+    if (@$_POST['nao'])
     {
         header('Location: ../mostra_adm.php');
     }
 }
-else if (@$_SESSION['cliemail'])
-{
-    if ($_POST['sim'])
+// if (@$_SESSION['cliemail'])
+// {
+
+    if($_POST['nao'])
     {
-        try
-{
-    $sql = "delete from clientes where clicodig = ?";
-    fazConsultaSegura($sql, array($codigo));
-} 
-catch ( thrown $error)
-{
-        echo ($error);
-}   
-        
-    } 
-    else
-    {
-        echo'oi';
         header('Location: ../home.php');   
     }
-}
+    else{
+        $sql = "delete from clientes where clicodig = ?";
+        $retorno=fazConsultaSegura($sql, array($codigo));
+        header('Location: ../home.php'); 
+    }
 
 
+// }
     
 
 
